@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>TODO App</title>
+</head>
+<body>
+
+
+
+<h1 id='name'>TODO App</h1>
+
+<button id='bt_Add'>Add</button>
+<button id='bt_Remove'>Remove</button>
+<button id='bt_Clear'>Clear</button>
+<ul id='text'></ul>
+
+<script type="text/javascript">
+
+  var list=[];
+  var count =0;
+
+var Write=function(){
+  document.getElementById('text').innerHTML='';
+  for (var i = 0; i < list.length; i++) {
+    document.getElementById('text').innerHTML+=list[i]+"<br> ";
+    ;
+  }
+}
+
+document.getElementById('bt_Add').addEventListener('click',(event)=>{
+  count++;
+  list.push("Task Number "+count);
+  Write();
+} )
+
+
+document.getElementById('bt_Remove').addEventListener('click',(event)=>{
+  if(count>0)
+  {
+    count--;
+    list.splice(list.length-1,1);
+    Write();
+  }
+})
+
+document.getElementById('bt_Clear').addEventListener('click',(event)=>{
+list.splice(0);
+count=0;
+Write();
+} )
+
+
+
+</script>
+
+</body>
+</html>
